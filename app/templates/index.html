@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company name availability</title>
+</head>
+
+<body>
+    <h1>Company name availability</h1>
+    <br>
+
+
+    <label class="col-form-label" for="select-us-states">Select any state from the list, fill
+        company
+        name
+        and
+        click on button to
+        check name availability:
+    </label><br><br>
+
+    <form action="{{ url_for('get_company_search_values')}}" method="POST" autocomplete="off">
+        <label class="col-form-label" for="select-us-states">State name:</label>
+        <select id="select-us-states" name="select-us-states" style="height: 25px; width: 180px;" size="1">
+            {% for row in states %}
+            <option value="{{row}}" SELECTED>{{row}}</option>"
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <label class="col-form-label" for="company-name">Company name:</label>
+        <input type="text" id="company-name" name="company-name" onfocus="this.value=''" placeholder="company-name">
+        <br>
+        <br>
+        <button type="submit">Check</button>
+    </form>
+    <br>
+
+    <script>
+        // const inputCompanyName = document.getElementById('company-name');
+        // const selectState = document.getElementById('select-us-states');
+        // const buttonCheck = document.getElementById('submit');
+
+        // const states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
+        //     'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+        //     'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska',
+        //     'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma',
+        //     'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+        //     'Virginia', 'Washington', 'Washington DC', 'West Virginia', 'Wisconsin', 'Wyoming'];
+
+        // for (const state of states) {
+        //     const option = document.createElement('option');
+        //     option.innerText = state;
+        //     selectState.appendChild(option);
+        // }
+
+        let selectedOption = document.getElementById('select-us-states');
+        selectedOption.options.selectedIndex = 0;
+    </script>
+</body>
+
+</html>
